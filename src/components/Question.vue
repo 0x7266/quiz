@@ -8,47 +8,68 @@ function emitSelectedOption(isCorrect: boolean) {
 </script>
 
 <template>
-	<div class="question">
-		<p class="question-text">
+	<div class="question-container">
+		<p class="question">
 			<span class="question-number">{{ question.id }}</span
-			>{{ question.text }}
+			><span class="question-text">{{ question.text }}</span>
 		</p>
-		<div class="options">
+		<div class="options-container">
 			<div
+				class="options"
 				v-for="option in question.options"
 				@click="emitSelectedOption(option.isCorrect)"
 			>
 				<span class="option-label">{{ option.label }}</span>
-				{{ option.text }}
+				<span>{{ option.text }}</span>
 			</div>
 		</div>
 	</div>
 </template>
 
 <style scoped>
-.question {
-	border-radius: 10px;
-	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
-	cursor: pointer;
-	width: 300px;
+.question-container {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
+.question {
+	border: solid 2px black;
+	cursor: pointer;
+	width: 300px;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	width: 100%;
+}
+
+.question .question-number {
+	background-color: #869b9c;
+	font-size: 2rem;
+	padding: 1rem;
+	border-right: solid 2px black;
+}
 
 .question .question-text {
-	background-color: #fff;
-	border-radius: 10px 10px 0 0;
-	color: black;
 	font-size: 1.2rem;
-	padding: 10px;
+	color: white;
+	flex-grow: 1;
 }
 
 .question .question-text .question-number {
 	font-weight: bolder;
 }
 
-.question .options {
-	padding: 0 10px;
+.options {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	border: solid 1px gray;
+}
+
+.options .option-label {
+	padding: 1rem;
+	background-color: #352233;
+	font-size: 0.8rem;
+	border-right: solid 1px gray;
 }
 </style>

@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { defineProps } from "vue";
 import { RouterLink } from "vue-router";
-const { numberOfCorrectAnswers, quizQuestionLength } = defineProps([
-	"quizQuestionLength",
-	"numberOfCorrectAnswers",
-]);
+const { numberOfCorrectAnswers, quizQuestionLength } = defineProps<{
+	numberOfCorrectAnswers: number;
+	quizQuestionLength: number;
+}>();
 </script>
 
 <template>
@@ -17,13 +17,17 @@ const { numberOfCorrectAnswers, quizQuestionLength } = defineProps([
 
 <style scoped>
 .results {
-	text-align: center;
-	padding: 100px 0;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+	justify-content: center;
 }
 p {
-	font-size: 25px;
+	font-size: 2rem;
 }
 h1 {
-	font-size: 80px;
+	font-size: 3rem;
 }
 </style>
