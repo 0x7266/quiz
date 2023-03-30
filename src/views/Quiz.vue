@@ -35,7 +35,7 @@ function handleSelection(isCorrect: boolean) {
 <template>
 	{{ quizProgress }}
 	<div class="container">
-		<h1>{{ name }} quiz</h1>
+		<h1>{{ quiz?.name }} quiz</h1>
 		<QuizHeader :questionStatus="questionStatus" :quizProgress="quizProgress" />
 		<Question
 			:question="quiz!.questions[currentQuestionIndex]"
